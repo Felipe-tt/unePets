@@ -1,0 +1,123 @@
+﻿<div class="row justify-content-center">
+    <div class="col-md-12">
+        <div class="wrapper">
+            <div class="row no-gutters">
+                <div class="col-md-7">
+                    <div class="contact-wrap w-100 p-md-5 p-4">
+                        <h3 class="mb-4">Cadastre-se</h3>
+                        <form method="POST" id="contactForm" name="formulario" class="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label" for="name">Nome Completo</label>
+                                        <input type="text" class="form-control" name="Nome" id="nome" placeholder="Nome">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label" for="CPF">CPF</label>
+                                        <input type="text" class="form-control" name="CPF" placeholder="CPF">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label" for="email">Email</label>
+                                        <input type="email" class="form-control" name="Email" id="email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label" for="Senha">Senha</label>
+                                        <input type="password" class="form-control" name="Senha" aria-required="true" autocapitalize="off" autocomplete="new-password" autocorrect="off" value="" placeholder="Senha">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label" for="Data Nascimento">Data Nascimento</label>
+                                        <input type="date" class="form-control" name="DataNascimento">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label" for="Número de telefone">Número de telefone</label>
+                                        <input type="tel" id="phone" class="form-control" name="Telefone" placeholder="Número de telefone">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label" for="profissao">Sua profissão</label>
+                                        <input type="text" class="form-control" name="Profissao" id="profissao" placeholder="Profissao">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="label" for="">CEP</label>
+                                    <input name="CEP" class="form-control" type="text" id="cep" value="" size="10" maxlength="9"
+                                           onblur="pesquisacep(this.value);" placeholder="CEP" />
+                                </div>
+
+                                <br />
+                                <div class="col-md-6">
+                                    <label class="label" for="rua">Rua</label>
+                                    <input name="rua" class="form-control" type="text" id="rua" size="60" placeholder="Rua" />
+                                </div>
+
+                                <br />
+                                <div class="col-md-6">
+                                    <label class="label" for="cidade">Cidade</label>
+                                    <input name="cidade" class="form-control" type="text" id="cidade" size="40" placeholder="Cidade" />
+                                </div>
+                                <br />
+                                <div class="col-md-6">
+                                    <label class="label" for="estado">Estado</label>
+                                    <input name="uf" class="form-control" type="text" id="uf" size="2" placeholder="Estado" />
+                                </div>
+
+                                <br />
+
+                                <div class="col-md-12">
+                                    <label class="label">Faça uma breve Descrição sobre você</label>
+                                    <textarea name="Descricao" class="form-control" id="descricao" cols="30" rows="4" placeholder="Descrição"></textarea>
+                                </div>
+
+                                
+                                <div class="col-md-6">
+                                    <input type="submit" value="Cadastrar" class="btn btn-primary py-3 px-4" onclick="Validar()">
+                                </div>
+                                <p class="login"></p>
+                                Já possui uma conta? Faça
+                                <a href="Login" style="color:blue"><span>⠀login</span></a>
+                            </div>
+                            @if (ViewBag.Error != null)
+                            {
+                                <div style="display: block; margin-top: 8px;"></div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span class="error">@ViewBag.Error</span>
+                                    </div>
+                                </div>
+                            }
+                        </form>
+                    </div>
+                </div>
+       
+
+
+
+
+
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <!-- Adicionando Javascript -->
+                <script src="~/js/ValidationHelp.js"></script>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
