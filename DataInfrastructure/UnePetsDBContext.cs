@@ -6,7 +6,6 @@ namespace DataInfrastructure
 {
     public class UnePetsDBContext : DbContext
     {
-        //
         //List<Anuncio> anuncios = db.Anuncios.Where(c => c.Status != Domain.Enum.Status.Adotado).ToList();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
