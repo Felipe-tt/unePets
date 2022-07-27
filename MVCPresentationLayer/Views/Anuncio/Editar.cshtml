@@ -1,0 +1,118 @@
+﻿@model MVCPresentationLayer.Models.Anuncio.AnuncioUpdateViewModel
+
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <div class="wrapper">
+            <div class="row no-gutters">
+                <div class="col-md-7">
+                    <div class="contact-wrap w-100 p-md-5 p-4">
+                        <h3 class="mb-4">Anuncie</h3>
+                        <form enctype="multipart/form-data" method="POST" id="contactForm" name="contactForm" class="contactForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="label" for="name">Nome / Pet</label>
+                                        <input type="text" class="form-control" value="@Model.Nome" name="Nome" id="name" placeholder="Nome do pet">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label" for="sexo">Seu pet é macho ou fêmea</label>
+                                        <select name="Sexo" class="form-check" value="@Model.Sexo" id="section-counter">
+                                            <option value="1">Macho</option>
+                                            <option value="2">Fêmea</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label" for="Porte">Qual o porte do seu pet?</label>
+                                        <select name="Porte" class="form-check" value="@Model.Porte" id="section-counter">
+                                            <option value="1">Pequeno</option>
+                                            <option value="2">Médio</option>
+                                            <option value="3">Grande</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label" for="Tipo">Qual pet você quer doar?</label>
+                                        <select name="Tipo" class="form-check" value="@Model.Tipo" id="section-counter">
+                                            <option value="1">Cachorros</option>
+                                            <option value="2">Gatos</option>
+                                            <option value="3">Passarinhos</option>
+                                            <option value="4">AnimaisPequenos</option>
+                                            <option value="5">Repteis</option>
+                                            <option value="6">Peixes </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label">Seu pet é castrado?</label>
+                                        <input type="checkbox" class="form-check" value="@Model.EhCastrado" name="EhCastrado" id="EhCastrado">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label">Seu pet é deficiente?</label>
+                                        <input type="checkbox" class="form-check" name="EhDeficiente" value="@Model.EhDeficiente" id="EhDeficiente">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label" value="@Model.DataNascimento" for="Data Nascimento">Data de Nascimento aproximada do seu PET</label>
+                                        <input type="date" class="form-control" name="DataNascimento">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-12">
+                                    <label class="label" for="#">Descricao</label>
+                                    <textarea name="Descricao" class="form-control" id="descricao" cols="30" rows="4" placeholder="Descrição"></textarea>
+                                </div>
+
+                                <div class="custom-file">
+                                    <input id="Arquivo" name="PrimeiraFoto" type="file" class="custom-file-input">
+                                    <label class="custom-file-label" for="Arquivo">Escolha um Aquivo</label>
+                                </div>
+
+                                <div class="custom-file">
+                                    <input id="Arquivo" name="SegundaFoto" type="file" class="custom-file-input">
+                                    <label class="custom-file-label" for="Arquivo">Escolha um Aquivo</label>
+                                </div>
+
+                                <div class="custom-file">
+                                    <input id="Arquivo" name="TerceiraFoto" type="file" class="custom-file-input">
+                                    <label class="custom-file-label" for="Arquivo">Escolha um Aquivo</label>
+                                </div>
+                            </div>
+                            <div style="display: block; margin-top: 8px;"></div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="submit" style="margin-top: 30px;" value="Cadastrar" class="btn btn-primary py-3 px-4">
+                                </div>
+                            </div>
+
+                            @if (ViewBag.Error != null)
+                            {
+                                <div style="display: block; margin-top: 8px;"></div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span class="error">@ViewBag.Error</span>
+                                    </div>
+                                </div>
+                            }
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

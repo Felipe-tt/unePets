@@ -1,0 +1,111 @@
+﻿@using MVCPresentationLayer.Models.Pessoa;
+@model PessoaProfileViewModel
+
+@{
+    ViewData["Title"] = "profile";
+}
+
+
+
+
+<section class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+    <div class="container">
+        <div class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+            <div class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+                <article class="card__blog">
+                    <div class="col-md-12 ftco-animate text-center fadeInUp ftco-animated">
+                        <h2 class="card__blog__title color-vivid-orange mb-4">Perfil</h2>
+                        @{
+                            string path = "\\imgSistema\\Avatar\\" + Model.Imagem + ".png";
+                        }
+                        <div class="card__blog__image mb-4"><img class="img-fluid" src="@path" /></div>
+                    </div>
+                    <div class="card__blog__image mb-4">
+                        <img class="img-fluid" src="/images/bg_1.jpg" />
+                        <section class="ftco-section bg-light ftco-no-pt ftco-intro">
+                            <div class="container">
+                                <div class="row">
+
+
+                                    <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate fadeInUp ftco-animated">
+                                        <div class="d-block services  text-center">
+                                            <div class="icon d-flex align-items-center justify-content-center">
+                                                <span class="flaticon-blind"></span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h3 class="heading">@Model.Nome</h3>
+                                                <p>@Model.Descricao</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate fadeInUp ftco-animated">
+                                        <div class="d-block services text-center">
+                                            <div class="icon d-flex align-items-center justify-content-center">
+                                                <span class="flaticon-dog-eating"></span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h3 class="heading">@Model.Profissao</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate fadeInUp ftco-animated">
+                                        <div class="d-block services text-center">
+                                            <div class="icon d-flex align-items-center justify-content-center">
+                                                <span class="flaticon-dog-eating"></span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h3 class="heading">@Model.Email</h3>
+                                                <p>@Model.Telefone</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<h2 class="card__blog__title color-vivid-orange mb-4">Localização</h2>
+<div class="media-body">
+    <h3 class="heading">@Model.Cidade</h3>
+    <p>@Model.Rua</p>
+</div>
+<div class="mapouter">
+    <div class="gmap_canvas">
+        <iframe width="1080" height="1080" id="gmap_canvas" src="https://maps.google.com/maps?q=@Model.CEP&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org">123movies</a><br>
+        <style>
+            .mapouter {
+                position: relative;
+                text-align: right;
+                height: 1080px;
+                width: 1080px;
+            }
+        </style><a href="https://www.embedgooglemap.net">google maps in html</a>
+        <style>
+            .gmap_canvas {
+                overflow: hidden;
+                background: none !important;
+                height: 850px;
+                width: 1080px;
+            }
+        </style>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

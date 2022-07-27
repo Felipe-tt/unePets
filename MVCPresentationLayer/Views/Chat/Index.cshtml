@@ -1,0 +1,39 @@
+﻿<input type="hidden" name="AnuncioID" value="@Model.ID" />
+
+
+@*<div class="row">
+        <div class="col-2">User</div>
+        <div class="col-4"><input type="text" id="userInput" /></div>
+    </div>*@
+<div id="divDoadorID" style="display: none;">
+    @Model.Pessoa.ID
+</div>
+<div class="row">
+    <div class="col-2">Message</div>
+    <div class="col-4"><input type="text" id="messageInput" /></div>
+</div>
+<div class="row">&nbsp;</div>
+<div class="row">
+    <div class="col-6">
+        <input type="button" id="sendButton" value="Enviar" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <ul id="messagesList"></ul>
+    </div>
+</div>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
+
+<!--O código anterior:
+
+Cria as caixas de texto para o nome e a mensagem de texto e um botão Enviar.
+Cria uma lista com id="messagesList" para exibir mensagens recebidas do SignalR hub.
+Inclui referências de script para SignalR e o chat.js código do aplicativo criado na próxima etapa.-->

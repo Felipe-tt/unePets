@@ -1,0 +1,390 @@
+﻿@using MVCPresentationLayer.Models.Anuncio;
+@model DetalhesQueryViewModel
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+@{
+    string fotoUrl1 = "/imgSistema/" + Model.ID + "/1.jpg";
+    string fotoUrl2 = "/imgSistema/" + Model.ID + "/2.jpg";
+    string fotoUrl3 = "/imgSistema/" + Model.ID + "/3.jpg";
+}
+
+
+@section CSSStyle{
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: rgb(255 118 11);
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: rgb(255 118 11);
+                color: white;
+            }
+    </style>
+
+}
+
+
+
+
+
+
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Informações do doador</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="wrapper">
+                    <div class="row mb-6">
+                        <div class="col-md-3">
+                            <div class="dbox w-100 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center">
+                                    <img class="img" src="~/images/Endereço.png">
+                                </div>
+                                <div class="text">
+                                    <p><span>Cidade</span> @Model.Pessoa.Cidade</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="dbox w-100 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center">
+                                    <img class="img" src="~/images/Phone.png">
+                                </div>
+                                <div class="text">
+                                    <p><span>Telefone</span> <a href="tel://@Model.Pessoa.Telefone">+ @Model.Pessoa.Telefone</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="dbox w-100 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center">
+                                    <img class="img" src="~/images/Gmail.png">
+                                </div>
+                                <div class="text">
+                                    <p><span>Email:</span> <a href="mailto:@Model.Pessoa.Email">@Model.Pessoa.Email</a></p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="dbox w-100 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center">
+                                    <img class="img" src="~/images/TipoPet.png">
+                                </div>
+                                <div class="text">
+                                    <p><span>Interesses: </span>@Model.PessoasInteressadas.Count</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="dbox w-100 text-center">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-md-7">
+                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                <h3 class="mb-4">Informações do pet</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="text pl-3">
+                                            <h4>Nome</h4>
+                                            <p>@Model.Nome</p>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text pl-3">
+                                            <h4>Data Nascimento</h4>
+                                            <p>@Model.DataNascimento.ToShortDateString()</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text pl-3">
+                                            <h4>É Deficiente?</h4>
+                                            @if (Model.EhDeficiente)
+                                            {
+                                                <p>Sim.</p>
+                                            }
+                                            else
+                                            {
+                                                <p>Não.</p>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text pl-3">
+                                            <h4>É Castrado?</h4>
+                                            @if (Model.EhCastrado)
+                                            {
+                                                <p>Sim.</p>
+                                            }
+                                            else
+                                            {
+                                                <p>Não.</p>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text pl-3">
+                                            <h4>Porte</h4>
+                                            <p>@Model.Porte.ToString()</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text pl-3">
+                                            <h4>Sexo</h4>
+                                            <p>@Model.Sexo.ToString()</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text pl-3">
+                                            <h4>Tipo</h4>
+                                            <p>@Model.Tipo.ToString()</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="text pl-3">
+                                            <h4>Descrição</h4>
+                                            <p>@Model.Descricao</p>
+                                        </div>
+                                    </div>
+                                    @if (ViewBag.Errors != null)
+                                    {
+                                        <div class="col-md-12 services-2 w-100 d-flex">
+                                            <div class="text pl-3">
+                                                <p>@ViewBag.Errors</p>
+                                            </div>
+                                        </div>
+                                    }
+
+
+                                    @if (Model.PessoaID == int.Parse(User.Claims.ToList()[2].Value))
+                                    {
+                                        <form method="post" action="/Anuncio/Doar/">
+                                            <input type="hidden" name="AnuncioID" value="@Model.ID" />
+                                            <table cellpadding="15" cellspacing="15" id="customers">
+                                                <tr>
+                                                    <th>Nome</th>
+                                                    <th>Email</th>
+                                                    <th>Telefone</th>
+                                                    <th>Descrição</th>
+                                                    <th>Ação</th>
+                                                </tr>
+                                                <tr>
+                                                    @foreach (var item in Model.PessoasInteressadas)
+                                                    {
+                                                    <tr>
+                                                        <td>
+                                                            @item.Nome
+                                                            <div method="post" action="/Anuncio/PerfilAnuncio/">
+                                                            </div>
+                                                            
+                                                        </td>
+                                                        <td>
+                                                            @item.Email
+                                                        </td>
+                                                        <td>
+                                                            @item.Telefone
+                                                        </td>
+                                                        <td>
+                                                            @item.Descricao
+                                                        </td>
+                                                        <td>
+                                                            <input type="submit" value="Doar" />
+                                                        </td>
+                                                    </tr>
+                                                }
+                                                </table>
+                                            </form>
+
+                                            <form method="post" action="/Anuncio/Deletar/">
+                                                <input type="hidden" name="AnuncioID" value="@Model.ID" />
+                                                <input type="submit" value="Excluir Anúncio" class="btn btn-primary py-3 px-4">
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <form method="post" action="/Anuncio/Detalhes/">
+                                                <input type="hidden" name="AnuncioID" value="@Model.ID" />
+
+                                                <div style="display: block; margin-top: 8px;"></div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <input type="submit" style="margin-top: 30px;" value="Tenho interesse!" class="btn btn-primary py-3 px-4">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        }
+                                    @if (ViewBag.Error != null)
+                                    {
+                                        <div style="display: block; margin-top: 8px;"></div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span class="error">@ViewBag.Error</span>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <section class="hero-wrap hero-wrap-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4 ftco-animate fadeInUp ftco-animated">
+                                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(@fotoUrl1);">
+                                            <a href="@fotoUrl1" class="icon image-popup d-flex justify-content-center align-items-center">
+                                                <span class="fa fa-expand"></span>
+                                            </a>
+                                            <div class="desc w-100 px-4">
+                                                <div class="text w-100 mb-3">
+                                                    <span>@Model.Tipo</span>
+                                                    <h2><a href="work-single.html">@Model.Nome</a></h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 ftco-animate fadeInUp ftco-animated">
+                                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(@fotoUrl2);">
+                                            <a href="@fotoUrl2" class="icon image-popup d-flex justify-content-center align-items-center">
+                                                <span class="fa fa-expand"></span>
+                                            </a>
+                                            <div class="desc w-100 px-4">
+                                                <div class="text w-100 mb-3">
+                                                    <span>@Model.Sexo</span>
+                                                    <h2><a href="work-single.html">@Model.Porte</a></h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 ftco-animate fadeInUp ftco-animated">
+                                        <div class="work mb-4 img d-flex align-items-end" style="background-image: url(@fotoUrl3);">
+                                            <a href="@fotoUrl3" class="icon image-popup d-flex justify-content-center align-items-center">
+                                                <span class="fa fa-expand"></span>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<input type="hidden" name="AnuncioID" value="@Model.ID" />
+
+
+@*<div class="row">
+        <div class="col-2">User</div>
+        <div class="col-4"><input type="text" id="userInput" /></div>
+    </div>*@
+<div id="divDoadorID" style="display: none;">
+    @Model.Pessoa.ID
+</div>
+<div class="col-md-12">
+    <div class="form-group">
+        <label class="label" for="message">Envie uma mensagem</label>
+        <input type="text" class="form-control" name="Nome" id="messageInput" placeholder="Mensagem">
+    </div>
+</div>
+
+<div class="row">&nbsp;</div>
+
+<div class="row">
+    <div class="col-12">
+        <input type="button" style="margin-top: 30px;" value="Enviar" id="sendButton" class="btn btn-primary py-3 px-4">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <ul id="messagesList"></ul>
+    </div>
+</div>
+<script src="~/js/photoFile.js"></script>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
+
+<!--O código anterior:
+
+Cria as caixas de texto para o nome e a mensagem de texto e um botão Enviar.
+Cria uma lista com id="messagesList" para exibir mensagens recebidas do SignalR hub.
+Inclui referências de script para SignalR e o chat.js código do aplicativo criado na próxima etapa.-->
+
+
+@section Scripts{
+    <script>
+        $("#slideshow > div:gt(0)").hide();
+
+        setInterval(function () {
+            $('#slideshow > div:first')
+                .fadeOut(1000)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo('#slideshow');
+        }, 3000);
+    </script>
+
+}

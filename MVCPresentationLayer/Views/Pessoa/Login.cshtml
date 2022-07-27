@@ -1,0 +1,43 @@
+﻿<div class="row justify-content-center">
+    <div class="col-md-66">
+        <div class="wrapper">
+            <div class="align-content-center">
+                <div class="align-content-center">
+                    <div class="contact-wrap w-100 p-md-5 p-4">
+                        <h3 class="mb-4">Login</h3>
+                        <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="label" for="email">Email</label>
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="label" for="Senha">Senha</label>
+                                        <input type="password" class="form-control" name="senha" aria-required="true" autocapitalize="off" autocomplete="new-password" autocorrect="off" value="" placeholder="Senha">
+                                    </div>
+                                </div>
+                                @if (ViewBag.Errors != null)
+                                {
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="error">@ViewBag.Errors</label>
+                        </div>
+                    </div>
+                                    <br />}
+                            </div>
+                            <div class="col-md-66">
+                                <input type="submit" value="Fazer Login" class="btn btn-primary py-3 px-4">
+                            </div>
+                            <p class="Teste"></p>
+                            Não possui uma conta?
+                            <a href="Create" style="color:blue"><span> Cadastre-se</span></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
