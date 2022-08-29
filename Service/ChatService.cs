@@ -67,9 +67,6 @@ namespace Service
             {
                 using (var db = new UnePetsDBContext())
                 {
-
-
-
                     db.Mensagens.Add(a);
                     await db.SaveChangesAsync();
                     return new Response()
@@ -87,7 +84,51 @@ namespace Service
 
         public Task<Response> Update(Mensagem a)
         {
-            throw new NotImplementedException();
+            ValidationResult result = validation.Validate(a);
+
+            Response r = result.ToResponse();
+            if (!r.Sucesso)
+            {
+                return r;
+            }
+            try
+            {
+                using (UnePetsDBContext db = new UnePetsDBContext())
+                {
+                    Mensagem mensagemBanco = await db.Mensagens.FindAsync(a.ID);
+                    mensagemBanco.Corpo = a.Corpo;
+                }
+
+                await db.SaveChangesAsync();
+                return new Response()
+                {
+                    Sucesso = true,
+                    Mensagem = "Mensagem editada com sucesso!"
+                };
+            }
+        }
+        catch (Exception ex)
+        {
+            return ResponseFactory.SummonResponseDatabaseError();
+        }    
+
+        public async Task<Response> Excluir(int id)
+        {
+            try
+            {
+                using (UnePetsDBContext db = new UnePetsDBContext())
+                {
+                    Mensagem a = new Mensagem();
+                    a.ID = id;
+                    db.Entry(a).State = EntityState.Deleted;
+                    await db.SaveChangesAsync();
+                    return ResponseFactory.SummonResponseSuccess();
+                }
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.SummonResponseDatabaseError();
+            }
         }
     }
 }
