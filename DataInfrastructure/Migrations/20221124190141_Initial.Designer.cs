@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataInfrastructure.Migrations
 {
     [DbContext(typeof(UnePetsDBContext))]
-    [Migration("20220719174308_Initial")]
+    [Migration("20221124190141_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

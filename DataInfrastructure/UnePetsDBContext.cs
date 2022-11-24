@@ -9,7 +9,7 @@ namespace DataInfrastructure
         //List<Anuncio> anuncios = db.Anuncios.Where(c => c.Status != Domain.Enum.Status.Adotado).ToList();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\OneDrive\Documentos\UnePetsDBContext.mdf;Integrated Security=True;Connect Timeout=5", x => x.EnableRetryOnFailure(5));
+            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\itzki\Documents\UnePetsDBContext.mdf;Integrated Security=True;Connect Timeout=5", x => x.EnableRetryOnFailure(5));
             base.OnConfiguring(optionsBuilder);
         }
 

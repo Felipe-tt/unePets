@@ -82,8 +82,9 @@ namespace Service
             }
         }
 
-        public Task<Response> Update(Mensagem a)
+        public async Task<Response> Update(Mensagem a)
         {
+            MensagemValidator validation = new MensagemValidator();
             ValidationResult result = validation.Validate(a);
 
             Response r = result.ToResponse();
@@ -97,20 +98,22 @@ namespace Service
                 {
                     Mensagem mensagemBanco = await db.Mensagens.FindAsync(a.ID);
                     mensagemBanco.Corpo = a.Corpo;
+                    await db.SaveChangesAsync();
                 }
 
-                await db.SaveChangesAsync();
                 return new Response()
                 {
                     Sucesso = true,
                     Mensagem = "Mensagem editada com sucesso!"
                 };
+
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.SummonResponseDatabaseError();
             }
         }
-        catch (Exception ex)
-        {
-            return ResponseFactory.SummonResponseDatabaseError();
-        }    
+
 
         public async Task<Response> Excluir(int id)
         {
