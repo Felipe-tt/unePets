@@ -34,6 +34,7 @@ namespace MVCPresentationLayer.Controllers
                 _mapper.Map<List<ChatQueryViewModel>>(response.Data);
 
             return View(chats);
+            //teste
         }
     }
 }

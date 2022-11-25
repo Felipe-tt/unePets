@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
@@ -12,7 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Anuncio\Criar.cshtml" />
     <Content Remove="Views\Pessoa\Perfil.cshtml" />
+    <Content Remove="wwwroot\images\unePetsLogoBoa.png" />
   </ItemGroup>
 
   <ItemGroup>

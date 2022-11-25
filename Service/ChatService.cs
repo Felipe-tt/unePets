@@ -76,7 +76,9 @@ namespace Service
                     };
                 }
             }
+            #pragma warning disable CS0168
             catch (Exception ex)
+            #pragma warning disable CS0168
             {
                 return ResponseFactory.SummonResponseDatabaseError();
             }

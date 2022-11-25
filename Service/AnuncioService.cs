@@ -42,7 +42,9 @@ namespace Service
                     };
                 }
             }
+            #pragma warning disable CS0168
             catch (Exception ex)
+            #pragma warning disable CS0168
             {
                 return new Response()
                 {
@@ -72,7 +74,9 @@ namespace Service
                     response.Item = anuncio;
                 }
             }
+            #pragma warning disable CS0168
             catch (Exception ex)
+            #pragma warning disable CS0168
             {
                 response.Sucesso = false;
                 response.Mensagem = "Erro no banco de dados, contate o adm.";

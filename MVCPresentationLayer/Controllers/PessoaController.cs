@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using MVCPresentationLayer.Models.Pessoa;
 using Service;
 using Service.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -17,8 +18,8 @@ namespace MVCPresentationLayer.Controllers
 {
     public class PessoaController : Controller
     {
-        private IPessoaService _pessoaService;
-        private IMapper _mapper;
+        private readonly IPessoaService _pessoaService;
+        private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _accessor;
         private readonly IWebHostEnvironment _appEnvironment;
 
@@ -44,14 +45,14 @@ namespace MVCPresentationLayer.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public IActionResult Cadastrar()
         {
 
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(PessoaInsertViewModel viewModel)
+        public async Task<IActionResult> Cadastrar(PessoaInsertViewModel viewModel)
         {
             Pessoa pessoa = _mapper.Map<Pessoa>(viewModel);
 
@@ -85,7 +86,7 @@ namespace MVCPresentationLayer.Controllers
                 return View();
             }
             //Se chegou aqui, devemos criar o cookies pq a autenticação funcionou!
-            List<Claim> userClaims = new List<Claim>()
+            List<Claim> userClaims = new()
                 {
                     //define o cookie
                     new Claim(ClaimTypes.Name, resposta.Item.Email),
@@ -128,6 +129,11 @@ namespace MVCPresentationLayer.Controllers
         }
         public IActionResult Profile(PessoaProfileViewModel pessoa)
         {
+            if (pessoa is null)
+            {
+                throw new ArgumentNullException(nameof(pessoa));
+            }
+
             return View();
         }
 

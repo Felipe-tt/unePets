@@ -24,7 +24,7 @@ namespace MVCPresentationLayer.Controllers
         public AnuncioController(IAnuncioService anuncioService, IMapper mapper, IWebHostEnvironment environment, IPessoaService pessoaService)
         {
             this._pessoaService = pessoaService;
-            this._anuncioService = anuncioService;  
+            this._anuncioService = anuncioService;
             this._mapper = mapper;
             this._appEnvironment = environment;
         }
@@ -111,7 +111,7 @@ namespace MVCPresentationLayer.Controllers
 
             return View(PerfilAnuncio);
         }
-        
+
         public async Task<IActionResult> Index()
         {
             DataResponse<Anuncio> response = await this._anuncioService.GetAll();//GetAll
@@ -137,7 +137,7 @@ namespace MVCPresentationLayer.Controllers
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> Create(AnuncioInsertViewModel viewModel)
-            {
+        {
             viewModel.EhCastrado = Request.Form["EhCastrado"].ToString() == "on" ? true : false;
             viewModel.EhDeficiente = Request.Form["EhDeficiente"].ToString() == "on" ? true : false;
 
@@ -146,7 +146,7 @@ namespace MVCPresentationLayer.Controllers
                 || !FileHelper.IsValidFile(viewModel.PrimeiraFoto.FileName) || !FileHelper.IsValidFile(viewModel.SegundaFoto.FileName) ||
                 !FileHelper.IsValidFile(viewModel.TerceiraFoto.FileName))
             {
-                ViewBag.Error = "Três imagens devem ser enviadas."; 
+                ViewBag.Error = "Três imagens devem ser enviadas.";
                 return View();
             }
             /// else

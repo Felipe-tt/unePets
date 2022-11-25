@@ -7,54 +7,54 @@
                         <h3 class="mb-4">Cadastre-se</h3>
                         <form method="POST" id="contactForm" name="formulario" class="contactForm">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6" onsubmit="return check()">
                                     <div class="form-group">
                                         <label class="label" for="name">Nome Completo</label>
-                                        <input type="text" class="form-control" name="Nome" id="nome" placeholder="Nome">
+                                        <input maxlength="50" type="text" class="form-control" name="Nome" id="nome" placeholder="Nome">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="label" for="CPF">CPF</label>
-                                        <input type="text" class="form-control" name="CPF" placeholder="CPF">
+                                        <input maxlength="11" type="text" class="form-control" name="CPF" placeholder="CPF" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="label" for="email">Email</label>
-                                        <input type="email" class="form-control" name="Email" id="email" placeholder="Email">
+                                        <input type="email" class="form-control" name="Email" id="email" placeholder="Email" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="label" for="Senha">Senha</label>
-                                        <input type="password" class="form-control" name="Senha" aria-required="true" autocapitalize="off" autocomplete="new-password" autocorrect="off" value="" placeholder="Senha">
+                                        <input type="password" class="form-control" name="Senha" aria-required="true" autocapitalize="off" autocomplete="new-password" autocorrect="off" value="" placeholder="Senha" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="label" for="Data Nascimento">Data Nascimento</label>
-                                        <input type="date" class="form-control" name="DataNascimento">
+                                        <input type="date" class="form-control" name="DataNascimento" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="label" for="Número de telefone">Número de telefone</label>
-                                        <input type="tel" id="phone" class="form-control" name="Telefone" placeholder="Número de telefone">
+                                        <input type="tel" id="phone" class="form-control" name="Telefone" placeholder="Número de telefone" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="label" for="profissao">Sua profissão</label>
-                                        <input type="text" class="form-control" name="Profissao" id="profissao" placeholder="Profissao">
+                                        <input type="text" class="form-control" name="Profissao" id="profissao" placeholder="Profissao" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label class="label" for="">CEP</label>
-                                    <input name="CEP" class="form-control" type="text" id="cep" value="" size="10" maxlength="9"
+                                    <input name="CEP" required class="form-control" type="text" id="cep" value="" size="10" maxlength="9"
                                            onblur="pesquisacep(this.value);" placeholder="CEP" />
                                 </div>
 
@@ -79,16 +79,16 @@
 
                                 <div class="col-md-12">
                                     <label class="label">Faça uma breve Descrição sobre você</label>
-                                    <textarea name="Descricao" class="form-control" id="descricao" cols="30" rows="4" placeholder="Descrição"></textarea>
+                                    <textarea required name="Descricao" class="form-control" id="descricao" cols="30" rows="4" placeholder="Descrição"></textarea>
                                 </div>
 
-                                
+
                                 <div class="col-md-6">
                                     <input type="submit" value="Cadastrar" class="btn btn-primary py-3 px-4" onclick="Validar()">
                                 </div>
                                 <p class="login"></p>
                                 Já possui uma conta? Faça
-                                <a href="Login" style="color:blue"><span>⠀login</span></a>
+                                <a href="Login" style="color:blue ; margin-left: 5px;">login</a>
                             </div>
                             @if (ViewBag.Error != null)
                             {
@@ -102,7 +102,7 @@
                         </form>
                     </div>
                 </div>
-       
+
 
 
 
@@ -111,6 +111,11 @@
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                 <!-- Adicionando Javascript -->
                 <script src="~/js/ValidationHelp.js"></script>
+                <script>
+                    $(document).on('submit', 'form', function (e) {
+                        e.preventDefault();
+                    })
+                </script>
 
             </div>
         </div>
